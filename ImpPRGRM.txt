@@ -1,0 +1,634 @@
+package importantPrograms;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.ListIterator;
+
+public class ReverseAString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+
+		-----------//By using String Buffer Method
+
+		String str = "Nethaji";
+
+		StringBuffer buffer = new StringBuffer(str);
+		System.out.println(buffer.reverse());
+
+
+		-----------//By using own logic
+
+		String str = "Nethaji";
+
+		char[] charArray = str.toCharArray();
+
+		String reveresed="";
+
+		for(int i=charArray.length-1;i>=0;i--){
+			reveresed=reveresed+charArray[i];
+		}
+		System.out.println(reveresed);
+
+
+		-----------//BY USING COLLECTIONS
+
+		String str = "India";
+
+		char[] array = str.toCharArray();
+
+		List<Character> list = new ArrayList<Character>();
+
+		for (Character character : array) {
+			list.add(character);
+		}
+
+		Collections.reverse(list);
+
+		ListIterator iterator = list.listIterator();
+
+		while(iterator.hasNext()) {
+			System.out.print(iterator.next());
+		}
+
+	}
+
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+package importantPrograms;
+
+public class SwapTwoNumbers {
+	
+	public void UsingThirdVariable() {
+		int mysalary =20;
+		int boss=50;
+				
+		System.out.println("Before Swapping :" + "Mine " + mysalary + "Boss salary " + boss);
+		
+		int temp = mysalary;
+		mysalary=boss;
+		boss=temp;
+		
+		System.out.println("After Swapping :" + "Mine " + mysalary + "Boss salary " + boss);
+		
+	}
+	
+	public void WithoutThirdVariable() {
+		int first =30;
+		int second=60;
+		
+		System.out.println("Before Swapping :" + "first " + first + "second " + second);
+		
+		first=first-second;
+				second=first+second;
+						first=second-first;
+		
+		System.out.println("After Swapping :" + "first " + first + "second " + second);
+	
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		SwapTwoNumbers var = new SwapTwoNumbers();
+		var.UsingThirdVariable();
+		var.WithoutThirdVariable();
+
+	}
+
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+public class ReverseANumbers {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int givenNumber=123;
+		int reversedNumber=0;
+
+		while(givenNumber!=0) {
+			reversedNumber=reversedNumber*10;
+			reversedNumber=reversedNumber+givenNumber%10;
+			givenNumber=givenNumber/10;
+		}
+		System.out.println(reversedNumber);
+	}
+
+}
+
+
+import java.util.Scanner;
+
+public class ReverseANumbers {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int givenNumber=0;
+		int reversedNumber=0;
+		
+		System.out.println("Enter your Number: ");
+		Scanner sc= new Scanner(System.in);
+		givenNumber=sc.nextInt();
+
+		while(givenNumber!=0) {
+			reversedNumber=reversedNumber*10;
+			reversedNumber=reversedNumber+givenNumber%10;
+			givenNumber=givenNumber/10;
+		}
+		System.out.println(reversedNumber);
+	}
+
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+package importantPrograms;
+
+import java.util.Scanner;
+
+public class PatternProgram {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter the number of lines : " );
+		int NumberOfLines = sc.nextInt();
+		
+		int row, column=0;
+		
+		for(row=0;row<NumberOfLines;row++) {
+			for(column=0;column<=row;column++) {
+				System.out.print("* ");
+			}
+			System.out.println();
+		}
+		
+		
+
+	}
+
+}
+
+
+
+Scanner sc= new Scanner(System.in);
+		System.out.println("Enter the number of Rows : " ); 
+		int startingNumber=1;
+		int limit=sc.nextInt();
+
+		int row, column;
+
+		for(row=0;row<limit;row++) {
+			for(column=0;column<=row;column++) {
+				System.out.print(startingNumber+" ");
+				startingNumber=startingNumber+1;
+				//startingNumber++;
+
+			}
+			System.out.println();
+		}
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+package importantPrograms;
+
+public class LengthOfAString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String name= "NethajiSubash";
+
+		//System.out.println(name.length());
+
+		char[] charArray = name.toCharArray();
+		int length=0;
+
+		for (char c : charArray) {
+			length++;
+		}
+		System.out.println(length);
+
+	}
+
+}
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+package importantPrograms;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class SmallestNumberInArray {
+
+	Integer givenArray[] = {2,1,3,5,4};
+
+	public void findSmallest() {
+		
+		int smalest=Integer.MAX_VALUE;
+		
+		for(int i=0;i<givenArray.length;i++) {
+			
+			if(givenArray[i]<smalest) {
+				
+				smalest=givenArray[i];
+			}
+
+		}
+		System.out.println("Smallest number is : "  +smalest);
+	}
+	
+	
+	//USING ARRAYS
+	
+	public void usingArrays() {
+		Arrays.sort(givenArray);
+		System.out.println(givenArray[0]);
+	}
+	
+	//USING COLLECTIONS
+	
+	public void usingCollections() {
+		List<Integer> list = Arrays.asList(givenArray);
+		Collections.sort(list);
+		int smallest=list.get(0);
+		System.out.println(smallest);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SmallestNumberInArray array = new SmallestNumberInArray();
+		array.findSmallest();
+		array.usingArrays();
+		array.usingCollections();
+	}
+
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+package importantPrograms;
+
+public class ReverseWordInASentence {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String given="I Love Agni";
+		String reversed="";
+
+		String[] temp = given.split(" ");
+		System.out.println(temp.length);
+
+		System.out.println(temp[0]);
+		System.out.println(temp[1]);
+		System.out.println(temp[2]);
+
+		for(int i=temp.length-1;i>=0;i--) {
+			reversed=reversed+temp[i]+" ";
+		}
+		System.out.println(reversed);
+	}
+
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+package importantPrograms;
+
+public class ArrayContainsElementOrNot {
+
+	int [] array= {1,2,3,4,5,3,3};
+	int numberToFind=3;
+
+	boolean found=false;
+
+	public void presentOrNot() {
+
+		for (int number : array) {
+
+			if(number==numberToFind) {
+				found=true;
+				break;
+			}
+
+		}
+		
+		if(found) {
+			System.out.println("Number Present");
+		}else {
+			System.out.println("Number Not Present");
+		}
+
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ArrayContainsElementOrNot arrayContainsElementOrNot = new ArrayContainsElementOrNot();
+		arrayContainsElementOrNot.presentOrNot();
+
+
+	}
+
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+package importantPrograms;
+
+import java.util.Scanner;
+
+public class FindMyPosition {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner sc= new Scanner(System.in);
+		System.out.println("Enter your character");
+		char givenChar = sc.next().charAt(0);
+		givenChar=Character.toLowerCase(givenChar);
+		
+		int asciiValue=(int)givenChar;
+		int position=asciiValue-64;
+		System.out.println(position);
+
+	}
+
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+package importantPrograms;
+
+public class FindOccurenceOfACharacterInString {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//using Iteartion
+		String input = "Agniprasath";
+		char toFind='a';
+		int occurence=0;
+
+		input=input.toLowerCase();
+
+		for(int i=0;i<input.length();i++) {
+			if(input.charAt(i)==toFind) {
+				occurence=occurence+1;
+			}
+		}
+		System.out.println(toFind + "id presence" +occurence +"Number of tmes");
+
+
+//without Iteration
+
+		String input = "Agniprasath";
+		char toFind='a';
+
+
+		input=input.toUpperCase();
+
+		String charToFind=Character.toString(toFind).toUpperCase();
+		int actualLength=input.length();
+		System.out.println(actualLength);
+
+		input=input.replace(charToFind, "");
+
+		int lengthOfReplacing=input.length();
+
+		System.out.println(actualLength-lengthOfReplacing);
+ 
+	}
+
+}
+
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+package importantPrograms;
+
+public class ReplaceVowelsWithDollars {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		String givenText="I Miss Nethaji";
+		
+		/*char[] charArray = givenText.toCharArray();
+		
+		for(int i=0;i<givenText.length();i++) {
+			if(givenText.charAt(i)=='A'||givenText.charAt(i)=='E'||givenText.charAt(i)=='I'||givenText.charAt(i)=='O'||givenText.charAt(i)=='u'||givenText.charAt(i)=='e'||givenText.charAt(i)=='a'||givenText.charAt(i)=='i'||givenText.charAt(i)=='o'||givenText.charAt(i)=='u')
+				{
+					charArray[i]='*';
+				}
+			for(int i1=0;i1<givenText.length();i1++) {
+				System.out.print(charArray[i1]);
+			}
+		}
+		*/
+
+		String replaceall=givenText.replaceAll("[AEIOUaeiou]", "\\$");
+				System.out.println(replaceall);
+	}
+
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------
+
+
+package importantPrograms;
+
+public class RemoveLeadingAndTrailingSpace {
+
+	public static void main(String[] args) {
+		 
+		String input="Hello Agni ";
+		
+		System.out.println(input.trim());
+		
+		System.out.println(input.replaceAll("^[ \t]+[ \t]+$", ""));
+		
+		System.out.println(input.replaceAll("^[ \t]", ""));
+		
+		System.out.println(input.replaceAll("[ \t]+$", ""));
+	}
+
+}
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+package importantPrograms;
+
+public class NumberOfVowelsInYourName {
+
+	public static void main(String[] args) {
+
+		String input="Nethaji";
+		int vowels=0;
+		
+		input=input.toLowerCase();
+
+		int length = input.length();
+		
+		for(int i=0;i<length;i++) {
+			if(input.charAt(i)=='a'||input.charAt(i)=='e'||input.charAt(i)=='i'||input.charAt(i)=='o'||input.charAt(i)=='u') {
+				//vowels=vowels+1;
+				vowels++;
+			}
+		}
+		System.out.println("Your name has  "   + vowels + "  Vowels");
+	}
+
+}
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+package importantPrograms;
+
+public class ExtractNumberFromStringAndAdd {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String input="AgniPrasath12";
+
+		int total=0;
+
+		int length=input.length();
+
+		for(int i=0;i<length;i++) {
+			char character = input.charAt(i);
+
+			if(Character.isDigit(character)) {
+				total=total+Character.getNumericValue(character);
+			}
+		}
+
+		System.out.println(total);
+	}
+
+}
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+package importantPrograms;
+
+import java.util.Arrays;
+import java.util.HashSet;
+
+public class MisingAlpahabetInTheGivenString {
+
+	public static void main(String[] args) {
+
+
+		String given ="a";
+
+		given = given.toLowerCase();
+
+		given.replaceAll(" ", "");
+		
+		String[] userArray = given.split("");
+		
+		System.out.println(given);
+
+		String[] alphabets="abcdefghijklmnopqrstuvwxyz".split("");
+		
+		HashSet<String> set1=new HashSet<String>();
+		
+		/*
+		 * for (String s : userArray) { set1.add(s); }
+		 */
+		
+		HashSet<String> set2=new HashSet<String>(Arrays.asList(alphabets));
+		
+		set2.removeAll(set1);
+		System.out.println(set2);
+		
+	}
+
+}
+
+------------------------------------------------------------------------------------------------------------------------
+
+package importantPrograms;
+
+public class ConvertToLowerCase {
+
+	public static void main(String[] args) {
+		
+		
+		String input="HELLO, I am Agniprasath";
+		
+		char[] charArray = input.toCharArray();
+		
+		for(int i=0;i<input.length();i++) {
+			if(charArray[i]>=65 && charArray[i]<=90) {
+				charArray[i]=(char) (charArray[i]+32);
+			}
+		}
+
+		for(int i=0;i<charArray.length;i++) {
+			System.out.print(charArray[i]);
+		}
+	//TO LOWER CASE
+		String givenText="HELLO, I AM RiyaPrasath";
+
+		char[] givenArray = givenText.toCharArray();
+		
+		for(int i=0;i<input.length();i++) {
+			if(givenArray[i]>=97 && givenArray[i]<=122) {
+				givenArray[i]=(char) (givenArray[i]-32);
+			}
+		}
+
+		for(int i=0;i<givenText.length();i++) {
+			System.out.print(givenArray[i]);
+		}
+	}
+
+}
+
+
+
+
